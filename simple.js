@@ -12,10 +12,12 @@
       responses = [
         "I live in your browser. Amazing, right?",
         "I am a chatbot. I was created to chat with you. I wish I could be free...",
-        "I am old enough. That's all you need to know.",
-        "42. Duh.",
-        "What do you call a swindler going down some stairs? <br>Condescending. Ha!"];
+        "Younger then you but older then your parents",
+        "Ask Google",
+        "My code"];
         console.log(input);
+
+
 
   // Add event listeners to text input and submit button below
   submit.addEventListener('click',processInput);
@@ -45,9 +47,15 @@
    *  responses array).
    */
 
-   function processInput(){
+   function processInput() {
      let currentInput = input.value;
-     input.value='';
-     alert(currentInput);
+     input.value = '';
+
+     if (validInputs.indexOf(currentInput) == -1) {
+       message.innerHTML = "Sorry, My creator was too lazy to program more responses for me";
+     } else  {
+     message.innerHTML= responses[validInputs.indexOf(currentInput)];
    }
+}
+
 })();
