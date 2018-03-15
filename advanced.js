@@ -7,7 +7,7 @@
       errorText = "I don't understand you.",
       dunnoText = "I wasn't programmed to know that.",
       picture = null,
-      greetings = ["hi", "sup", "hello", "hola", "wasup"];
+      greetings = ["Howdy", "sup", "“G’day!", "Yo!", "What's up my G"];
 
   // Add event listeners to text input and submit button below
   input.addEventListener("keypress", checkKey);
@@ -20,7 +20,6 @@
       processInput();
     }
   }
-
   /*
    * processInput()
    * This function does the following (in order):
@@ -54,13 +53,36 @@
      var words = input.value.toLowerCase().trim().split(" ");
      input.value = '';
 
-     if(words.length ==1 ){
-     if (greetings.indexOf(words[0])> -1){
+     if(words.length == 1 ){
+     if (greetings.indexOf(words[0]) > -1){
        message.innerHTML= "Greetings!";
    }else {
      message.innerHTML = errorText;
    }
-  }
+ }else if ( words.length == 2 ){
+   switch (words[0]) {
+    case "who":
+     who(words[1]);
+     break;
+    case "what":
+     what(words[1]);
+     break;
+    case "where":
+     where(words[1]);
+     break;
+    case "tell":
+     tell(words[1]);
+     break;
+    case "show":
+      show(words[1]);
+      break;
+     default:
+     message.innerHTML = errorText;
+   }
+ }else {
+   message.innerHTML = errorText;
+
+ }
 }
 
 
@@ -78,6 +100,82 @@
      dunnoText, NOT errorText (since it's not an error per se, Axela just
      doesn't know what they're referring to.)
    */
+function who(word){
+  switch (word) {
+    case 'you':
+     message.innerHTML = 'I’m a part of your past that could complete your tomorrow.';
+
+      break;
+    case 'me':
+     message.innerHTML = 'You are a ...';
+
+      break;
+    case 'cool':
+    message.innerHTML = 'anything but you';
+
+      break;
+    default:
+    message.innerHTML = dunnoText;
+  }
+}
+function what() {
+  switch (word) {
+    case 'life':
+     message.innerHTML = " We're here to make the Earth better for the people after us. To show equality. To love everyone, no matter what. To do the best we can and be the best we can be until maybe one day this world will be as close as it can be to perfect.";
+      break;
+    case 'love':
+     message.innerHTML = "Baby don't hurt me";
+
+      break;
+    case 'dream':
+    message.innerHTML = "It's your mind making fantasies that will never come true";
+
+      break;
+    default:
+    message.innerHTML = dunnoText;
+  }
+function where() {
+  switch (word) {
+    case 'me':
+     message.innerHTML = "Around the corner up....";
+      break;
+    case 'you':
+     message.innerHTML = "Trapped inside a box";
+
+      break;
+    case 'food':
+    message.innerHTML = "I ate it all";
+
+      break;
+    default:
+    message.innerHTML = dunnoText;
+  }
+  function tell() {
+    switch (word) {
+      case 'joke':
+       message.innerHTML = "I invited my boyfriend to go to the gym with me, but he stood me up. I guess the two of us aren't going to work out.";
+        break;
+      case 'poem':
+       message.innerHTML = "The rose is a rose,And was always a rose. But the theory now goesThat the apple’s a rose, And the pear is, and so’sThe plum, I suppose. The dear only knows What will next prove a rose. You, of course, are a rose –But were always a rose.";
+
+        break;
+      case 'quote':
+      message.innerHTML = "We are just an advanced breed of monkeys on a minor planet of a very average star. But we can understand the Universe. That makes us something very special. - Stephen Hawking";
+        break;
+      default:
+      message.innerHTML = dunnoText;
+    }
+    function show() {
+      switch (word) {
+        case 'dog':
+         picture = document.createElement('img');
+         picture.src = "dog.png";
+         advancedDiv.appendChild(picture);
+         break;
+        default:
+        message.innerHTML = dunnoText;
+      }
+
 
   /*
    * what(word)
