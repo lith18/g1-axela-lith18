@@ -5,9 +5,9 @@
       message = document.querySelector("#axela-message"),
       advancedDiv  = document.querySelector("#advanced"),
       errorText = "I don't understand you.",
-      dunnoText = "I wasn't programmed to know that.",
+      dunnoText = "Sorry, My creator was too lazy to program more responses for me",
       picture = null,
-      greetings = ["Howdy", "sup", "“G’day!", "Yo!", "What's up my G"];
+      greetings = [" Howdy ", " Sup ", " G’day! ", " Yo! ", " What's up my G "];
 
 
   // Add event listeners to text input and submit button below
@@ -57,8 +57,12 @@
      if(words.length == 1 ){
      if (greetings.indexOf(words[0]) > -1){
        message.innerHTML= "Greetings!";
+       var msg = new SpeechSynthesisUtterance("Greetings!");
+       window.speechSynthesis.speak(msg);
    }else {
      message.innerHTML = errorText;
+     var msg = new SpeechSynthesisUtterance(errorText);
+     window.speechSynthesis.speak(msg);
    }
  }else if ( words.length == 2 ){
    switch (words[0]) {
@@ -79,9 +83,13 @@
       break;
      default:
      message.innerHTML = errorText;
+     var msg = new SpeechSynthesisUtterance(errorText);
+     window.speechSynthesis.speak(msg);
    }
  }else {
    message.innerHTML = errorText;
+   var msg = new SpeechSynthesisUtterance(errorText);
+   window.speechSynthesis.speak(msg);
 
  }
 }
@@ -111,64 +119,91 @@ function who(word){
       break;
     case 'me':
      message.innerHTML = 'You are a ...';
-
+     var msg = new SpeechSynthesisUtterance('You are a ...;');
+     window.speechSynthesis.speak(msg);
       break;
     case 'cool':
     message.innerHTML = 'anything but you';
-
+    var msg = new SpeechSynthesisUtterance('anything but you');
+    window.speechSynthesis.speak(msg);
       break;
     default:
     message.innerHTML = dunnoText;
+    var msg = new SpeechSynthesisUtterance(dunnoText);
+    window.speechSynthesis.speak(msg);
   }
 }
 function what(word) {
   switch (word) {
     case 'life':
      message.innerHTML = " We're here to make the Earth better for the people after us. To show equality. To love everyone, no matter what. To do the best we can and be the best we can be until maybe one day this world will be as close as it can be to perfect.";
+     var msg = new SpeechSynthesisUtterance(" We're here to make the Earth better for the people after us. To show equality. To love everyone, no matter what. To do the best we can and be the best we can be until maybe one day this world will be as close as it can be to perfect.");
+     window.speechSynthesis.speak(msg);
       break;
     case 'love':
      message.innerHTML = "Baby don't hurt me";
-
+     var msg = new SpeechSynthesisUtterance(" Baby don't hurt me");
+     window.speechSynthesis.speak(msg);
       break;
     case 'dream':
     message.innerHTML = "It's your mind making fantasies that will never come true";
+    var msg = new SpeechSynthesisUtterance("It's your mind making fantasies that will never come true");
+    window.speechSynthesis.speak(msg);
 
       break;
     default:
     message.innerHTML = dunnoText;
+    var msg = new SpeechSynthesisUtterance(dunnoText);
+    window.speechSynthesis.speak(msg);
   }
 }
 function where(word) {
   switch (word) {
     case 'me':
      message.innerHTML = "Around the corner up....";
+     var msg = new SpeechSynthesisUtterance("Around the corner up....");
+     window.speechSynthesis.speak(msg);
       break;
     case 'you':
      message.innerHTML = "Trapped inside a box";
+     var msg = new SpeechSynthesisUtterance("Trapped inside a box");
+     window.speechSynthesis.speak(msg);
 
       break;
     case 'food':
     message.innerHTML = "I ate it all";
+    var msg = new SpeechSynthesisUtterance("I ate it all");
+    window.speechSynthesis.speak(msg);
 
       break;
     default:
     message.innerHTML = dunnoText;
+    var msg = new SpeechSynthesisUtterance(dunnoText);
+    window.speechSynthesis.speak(msg);
   }
 }
   function tell(word) {
     switch (word) {
       case 'joke':
        message.innerHTML = "I invited my boyfriend to go to the gym with me, but he stood me up. I guess the two of us aren't going to work out.";
+       var msg = new SpeechSynthesisUtterance("I invited my boyfriend to go to the gym with me, but he stood me up. I guess the two of us aren't going to work out.");
+       window.speechSynthesis.speak(msg);
         break;
       case 'poem':
        message.innerHTML = "The rose is a rose, and was always a rose. But the theory now goes That the apple’s a rose, And the pear is, and so’s The plum, I suppose. The dear only knows  What will next prove a rose.  You, of course, are a rose –But were always a rose.";
+       var msg = new SpeechSynthesisUtterance("The rose is a rose, and was always a rose. But the theory now goes That the apple’s a rose, And the pear is, and so’s The plum, I suppose. The dear only knows  What will next prove a rose.  You, of course, are a rose –But were always a rose.");
+       window.speechSynthesis.speak(msg);
 
         break;
       case 'quote':
       message.innerHTML = "We are just an advanced breed of monkeys on a minor planet of a very average star. But we can understand the Universe. That makes us something very special. - Stephen Hawking";
+      var msg = new SpeechSynthesisUtterance("We are just an advanced breed of monkeys on a minor planet of a very average star. But we can understand the Universe. That makes us something very special. - Stephen Hawking");
+      window.speechSynthesis.speak(msg);
         break;
       default:
       message.innerHTML = dunnoText;
+      var msg = new SpeechSynthesisUtterance(dunnoText);
+      window.speechSynthesis.speak(msg);
     }
     }
     function show(word) {
@@ -177,14 +212,20 @@ function where(word) {
          picture = document.createElement('img');
          picture.src = "img/dog.png";
          advancedDiv.appendChild(picture);
+         var msg = new SpeechSynthesisUtterance("woof");
+         window.speechSynthesis.speak(msg);
          break;
          case 'president':
          picture = document.createElement('img');
          picture.src = "img/pres.gif";
          advancedDiv.appendChild(picture);
+         var msg = new SpeechSynthesisUtterance("Bernie for 2020");
+         window.speechSynthesis.speak(msg);
          break;
          default:
          message.innerHTML = dunnoText;
+         var msg = new SpeechSynthesisUtterance(dunnoText);
+         window.speechSynthesis.speak(msg);
       }
     }
 
