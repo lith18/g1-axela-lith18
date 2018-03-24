@@ -9,6 +9,7 @@
       picture = null,
       greetings = ["Howdy", "sup", "“G’day!", "Yo!", "What's up my G"];
 
+
   // Add event listeners to text input and submit button below
   input.addEventListener("keypress", checkKey);
   submit.addEventListener("click", processInput);
@@ -104,6 +105,8 @@ function who(word){
   switch (word) {
     case 'you':
      message.innerHTML = 'I’m a part of your past that could complete your tomorrow.';
+     var msg = new SpeechSynthesisUtterance('I’m a part of your past that could complete your tomorrow.');
+     window.speechSynthesis.speak(msg);
 
       break;
     case 'me':
@@ -118,7 +121,7 @@ function who(word){
     message.innerHTML = dunnoText;
   }
 }
-function what() {
+function what(word) {
   switch (word) {
     case 'life':
      message.innerHTML = " We're here to make the Earth better for the people after us. To show equality. To love everyone, no matter what. To do the best we can and be the best we can be until maybe one day this world will be as close as it can be to perfect.";
@@ -134,7 +137,8 @@ function what() {
     default:
     message.innerHTML = dunnoText;
   }
-function where() {
+}
+function where(word) {
   switch (word) {
     case 'me':
      message.innerHTML = "Around the corner up....";
@@ -150,13 +154,14 @@ function where() {
     default:
     message.innerHTML = dunnoText;
   }
-  function tell() {
+}
+  function tell(word) {
     switch (word) {
       case 'joke':
        message.innerHTML = "I invited my boyfriend to go to the gym with me, but he stood me up. I guess the two of us aren't going to work out.";
         break;
       case 'poem':
-       message.innerHTML = "The rose is a rose,And was always a rose. But the theory now goesThat the apple’s a rose, And the pear is, and so’sThe plum, I suppose. The dear only knows What will next prove a rose. You, of course, are a rose –But were always a rose.";
+       message.innerHTML = "The rose is a rose, and was always a rose. But the theory now goes That the apple’s a rose, And the pear is, and so’s The plum, I suppose. The dear only knows  What will next prove a rose.  You, of course, are a rose –But were always a rose.";
 
         break;
       case 'quote':
@@ -165,37 +170,23 @@ function where() {
       default:
       message.innerHTML = dunnoText;
     }
-    function show() {
+    }
+    function show(word) {
       switch (word) {
         case 'dog':
          picture = document.createElement('img');
-         picture.src = "dog.png";
+         picture.src = "img/dog.png";
          advancedDiv.appendChild(picture);
          break;
-        default:
-        message.innerHTML = dunnoText;
+         case 'president':
+         picture = document.createElement('img');
+         picture.src = "img/pres.gif";
+         advancedDiv.appendChild(picture);
+         break;
+         default:
+         message.innerHTML = dunnoText;
       }
-
-
-  /*
-   * what(word)
-   * See above.
-   */
-
-  /*
-   * where(word)
-   * See above.
-   */
-
-  /*
-   * tell(word)
-   * See above.
-   */
-
-  /*
-   * show(word)
-   * See above.
-   */
+    }
 
 
 })();

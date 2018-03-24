@@ -1,6 +1,7 @@
 body {
   display: flex;
   flex-direction: row;
+  background-color: #899E9F;
 }
 
 body div {
@@ -9,4 +10,12 @@ body div {
   border: 1px solid black;
   margin: 0 auto;
   padding: 10px;
+}
+p {
+  font-family: sans-serif;
+  font-style: italic;
+}
+h1 {
+  font-family: sans-serif;
+  font-style: italic;
 }
