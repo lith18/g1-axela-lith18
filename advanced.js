@@ -8,6 +8,8 @@
       dunnoText = "Sorry, My creator was too lazy to program more responses for me",
       picture = null,
       greetings = [" Howdy ", " Sup ", " G’day! ", " Yo! ", " What's up my G "];
+      person = prompt("Please enter your name");
+
 
 
   // Add event listeners to text input and submit button below
@@ -47,17 +49,26 @@
       anything other than 1 or 2 words. This will simply set the innerHTML of
       the message element to errorText.
    */
+   if (person != null) {
+       message.innerHTML = "Hello " + person + "! How are you today?";
+       var msg = new SpeechSynthesisUtterance("Hello " + person + "! How are you today?");
+       window.speechSynthesis.speak(msg);
+   }
    function processInput(){
      if (advancedDiv.contains(picture)){
-       picture.removeChild();
+       advancedDiv.removeChild(picture);
      }
      var words = input.value.toLowerCase().trim().split(" ");
      input.value = '';
 
+     // if (person != null) {
+     //     message.innerHTML = "Hello " + person + "! How are you today?";
+     // }
+
      if(words.length == 1 ){
      if (greetings.indexOf(words[0]) > -1){
        message.innerHTML= "Greetings!";
-       var msg = new SpeechSynthesisUtterance("Greetings!");
+       var msg = new SpeechSynthesisUtterance(Greetings);
        window.speechSynthesis.speak(msg);
    }else {
      message.innerHTML = errorText;
