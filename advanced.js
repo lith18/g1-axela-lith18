@@ -7,7 +7,7 @@
       errorText = "I don't understand you.",
       dunnoText = "Sorry, My creator was too lazy to program more responses for me",
       picture = null,
-      greetings = [" Howdy ", " Sup ", " G’day! ", " Yo! ", " What's up my G "];
+      greetings = [" howdy ", " sup ", " g’day! ", " yo! ", " hi "],
       person = prompt("Please enter your name");
 
 
@@ -54,20 +54,18 @@
        var msg = new SpeechSynthesisUtterance("Hello " + person + "! How are you today?");
        window.speechSynthesis.speak(msg);
    }
+
    function processInput(){
      if (advancedDiv.contains(picture)){
        advancedDiv.removeChild(picture);
      }
+
+
      var words = input.value.toLowerCase().trim().split(" ");
      input.value = '';
-
-     // if (person != null) {
-     //     message.innerHTML = "Hello " + person + "! How are you today?";
-     // }
-
-     if(words.length == 1 ){
-     if (greetings.indexOf(words[0]) > -1){
-       message.innerHTML= "Greetings!";
+  if(words.length == 1 ) {
+     if(greetings.indexOf(words[0]) != -1){
+       message.innerHTML= "hello!";
        var msg = new SpeechSynthesisUtterance(Greetings);
        window.speechSynthesis.speak(msg);
    }else {
@@ -75,7 +73,7 @@
      var msg = new SpeechSynthesisUtterance(errorText);
      window.speechSynthesis.speak(msg);
    }
- }else if ( words.length == 2 ){
+ } else if ( words.length == 2 ){
    switch (words[0]) {
     case "who":
      who(words[1]);
